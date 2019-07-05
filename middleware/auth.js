@@ -3,6 +3,13 @@ const config = require('../config/keys');
 
 exports.checkToken = (req, res, next) => {
     const token = req.headers['x-access-token'] || req.headers['authorization']; // Express headers are auto converted to lowercase
+
+    if (!token) {
+        return res.json({
+            success: false,
+            message: 'Authorization header missing'
+        });
+    }
     if (token.startsWith('Bearer ')) {
         // Remove Bearer from string
         token = token.slice(7, token.length);

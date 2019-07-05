@@ -15,10 +15,15 @@ exports.getPersons = (req, res) => {
 exports.getPerson = (req, res) => {
     const id = req.params.id;
     Person.findById(id).then(person => {
-        res.send(person)
+        if (!person) {
+            res.status(404).send({
+                message: 'No Person found with id ' + id
+            });
+        }
+        res.send(person);
     }).catch(err => {
         res.status(404).send({
-            message: 'Person not found with id ' + id
+            message: 'No Person found with id ' + id
         });
     });
 };
@@ -50,7 +55,7 @@ exports.addPerson = (req, res) => {
 // update person information
 exports.updatePerson = (req, res) => {
     const id = req.params.id;
-    Person.findByIdAndUpdate(id, {
+    Person.findOneAndUpdate(id, {
         firstNam: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
@@ -63,7 +68,7 @@ exports.updatePerson = (req, res) => {
         hobbies: req.body.hobbies,
         profilePicture: req.body.profilePicture
     }, {
-        new: true
+        useFindAndModify: false
     }).then(person => {
         if (!person) {
             return res.status(404).send({

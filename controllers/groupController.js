@@ -28,13 +28,13 @@ exports.getGroup = (req, res) => {
 //update an existing group
 exports.updateGroup = (req, res) => {
     const id = req.params.id;
-    group.findByIdAndUpdate(id, {
+    Group.findByIdAndUpdate(id, {
         name: req.body.name,
         description: req.body.description
     }, {
         new: true
     }).then(group => {
-        if (!note) {
+        if (!group) {
             return res.status(404).send({
                 message: 'No Group found with id ' + id
             });
