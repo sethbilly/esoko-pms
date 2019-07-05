@@ -37,7 +37,7 @@ run > npm run dev
 
 ## API endpoints
 
-Use demo username admin and password admin\$123 to get token to access endpoints
+Use demo username admin and password admin\$123 to get token to access endpoints. Add Authorization header to each request after successful login.
 
 ```
 POST /auth/login
@@ -75,6 +75,7 @@ POST /api/persons
 GET /api/person/:id
 PUT /api/persons/:id
 DELETE /api:/persons/:id
+GET /api/search/:searchString
 ```
 
 ## Deployment
