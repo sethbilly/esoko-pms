@@ -93,20 +93,14 @@ to build system and deploy.
 - Express
 - Mongodb
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Versioning
 
 Version 1
 
-## Authors
+## Author
 
 - **Nartey Seth Bily**
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Hat tip to anyone whose code inspired this work.
